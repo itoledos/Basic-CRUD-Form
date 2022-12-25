@@ -77,6 +77,13 @@ const Read = () => {
 
                     })}
                 </Table.Body>
+                <Table.Footer>
+                    <Table.Row>
+                        <Table.Cell>
+                            <Link to={'/'} style={{marginLeft: '25px', color: 'blue'}}>Return to main</Link>
+                        </Table.Cell>
+                    </Table.Row>
+                </Table.Footer>
             </Table>
         </div>
     )
