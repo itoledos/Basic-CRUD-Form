@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Table } from 'semantic-ui-react';
+// import { Button, Table } from 'semantic-ui-react';
+// import { Button, TableFooter } from 'semantic-ui-react';
+import Button from '@mui/material/Button';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 
 const Read = () => {
@@ -44,47 +53,50 @@ const Read = () => {
 
     return (
         <div>
-            <Table singleLine>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>First Name</Table.HeaderCell>
-                        <Table.HeaderCell>Last Name</Table.HeaderCell>
-                        <Table.HeaderCell>Checked</Table.HeaderCell>
-                        <Table.HeaderCell>Update</Table.HeaderCell>
-                        <Table.HeaderCell>Delete</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
+            <TableContainer component={Paper}>
 
-                <Table.Body>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>First Name</TableCell>
+                        <TableCell>Last Name</TableCell>
+                        <TableCell>Checked</TableCell>
+                        <TableCell>Update</TableCell>
+                        <TableCell>Delete</TableCell>
+                    </TableRow>
+                </TableHead>
+
+                <TableBody>
                     {APIData.map((data,idx)=> {
                         return(
-                            <Table.Row key={idx}>
-                                <Table.Cell>{data.firstName}</Table.Cell>
-                                <Table.Cell>{data.lastName}</Table.Cell>
-                                <Table.Cell>{data.checkbox?'Checked':'Unchecked'}</Table.Cell>
-                                <Table.Cell>
+                            <TableRow key={idx}>
+                                <TableCell>{data.firstName}</TableCell>
+                                <TableCell>{data.lastName}</TableCell>
+                                <TableCell>{data.checkbox?'Checked':'Unchecked'}</TableCell>
+                                <TableCell>
                                     <Link>
                                         <Button onClick={()=>setData(data)}>Update</Button>
                                     </Link>
-                                </Table.Cell>
-                                <Table.Cell>
+                                </TableCell>
+                                <TableCell>
                                     <Link>
                                         <Button onClick={()=>onDelete(data.id)}>Delete</Button>
                                     </Link>
-                                </Table.Cell>
-                            </Table.Row>
+                                </TableCell>
+                            </TableRow>
                         )
 
                     })}
-                </Table.Body>
-                <Table.Footer>
-                    <Table.Row>
-                        <Table.Cell>
-                            <Link to={'/'} style={{marginLeft: '25px', color: 'blue'}}>Return to main</Link>
-                        </Table.Cell>
-                    </Table.Row>
-                </Table.Footer>
+                </TableBody>
+                {/* <TableFooter>
+                    <TableRow>
+                    <TableCell>
+                    <Button onClick={() => navigate('/')} >Go Back</Button>
+                    </TableCell>
+                    </TableRow>
+                </TableFooter> */}
             </Table>
+            </TableContainer>
         </div>
     )
 }
