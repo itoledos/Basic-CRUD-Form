@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment>
         <div className="main">
-          <h2 className="main-header">React Crud Operations</h2>
+          <h2 className="main-header" style={{fontSize: '4em', marginBottom: '2em'}}>React Crud Operations</h2>
           <div>
             <Routes>
 

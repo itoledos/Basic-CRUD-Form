@@ -39,11 +39,12 @@
 
 .main{
   display: flex;
-  justify-content: center;
+  padding-top: 4em;
+  justify-content: top;
   align-items: center;
   height: 100vh;
-  background-color: #25601f;
-  color: whitesmoke;
+  background-color: #9ed2db;
+  color: rgb(88, 87, 87);
   flex-direction: column;
 }
 
